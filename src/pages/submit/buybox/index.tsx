@@ -2,7 +2,9 @@ import { GMap } from "apple/components/google-map"
 import React from "react"
 
 export default function Deals() {
+
   const isMarkerShown = true;
+  
   return (
     <>
       <div className="flex flex-col items-center p-5">
