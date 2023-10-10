@@ -7,6 +7,7 @@ interface IDatePickerProps {
 }
 
 const InputDate: React.FC<IDatePickerProps> = ({ changeDate }) => {
+  
   const options: IOptions = {
     title: "",
     autoHide: true,
@@ -33,9 +34,11 @@ const InputDate: React.FC<IDatePickerProps> = ({ changeDate }) => {
   };
 
   const [show, setShow] = useState(false);
+
   const handleChange = (selectedDate: Date) => {
     changeDate(selectedDate.toString());
   };
+
   const handleClose = (state: boolean) => {
     setShow(state);
   };
