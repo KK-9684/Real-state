@@ -1,7 +1,36 @@
-import { signIn, signOut, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import Head from "next/head"
 import Link from "next/link"
 import { api } from "apple/utils/api"
+import {RadioGroup, Radio, cn} from "@nextui-org/react"
+import { DropdownItem as NextUIDropdownItem } from "@nextui-org/dropdown";
+import { type DropdownItemProps } from "@nextui-org/react";
+
+const DropdownItem = (props: DropdownItemProps) => {
+    return <NextUIDropdownItem {...props} />;
+};
+
+interface RadioProps {
+  children: React.ReactNode,
+  value: string,
+  description: string,
+}
+
+function CustomRadio ({ value, description }: RadioProps) {
+  return (
+    <Radio
+      value={value}
+      description={description}
+      classNames={{
+        wrapper: cn("border-red-500 hover:border-yellow-300"),
+        control: cn("bg-red-500 hover:bg-blue-500"),
+      }}
+      className="m-3"
+    >
+      {value}
+    </Radio>
+  );
+};
 
 export default function Home() {
 
@@ -43,6 +72,38 @@ export default function Home() {
             </p>
             <AuthShowcase />
           </div>
+        </div>
+        <DropdownItem></DropdownItem>
+        <div className="p-3 bg-white w-[200px] mb-2">
+          <RadioGroup label="Plans" description="" color={ undefined } classNames={{
+            wrapper: cn("border-red-500 hover:border-yellow-300 checked:border-white")
+          }}>
+            <CustomRadio description="" value="free">
+              Free
+            </CustomRadio>
+            <CustomRadio description="" value="pro">
+              Pro
+            </CustomRadio>
+            <CustomRadio
+              description=""
+              value="enterprise"
+            >
+              Enterprise
+            </CustomRadio>
+          </RadioGroup>
+        </div>
+        <div className="p-3 bg-white w-[200px]">
+          <RadioGroup
+            label="Select your favorite city"
+            color="warning"
+            defaultValue="london"
+          >
+            <Radio value="buenos-aires">Buenos Aires</Radio>
+            <Radio value="sydney">Sydney</Radio>
+            <Radio value="san-francisco">San Francisco</Radio>
+            <Radio value="london">London</Radio>
+            <Radio value="tokyo">Tokyo</Radio>
+          </RadioGroup>
         </div>
       </main>
     </>

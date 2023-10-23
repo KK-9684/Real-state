@@ -1,4 +1,6 @@
-import { type Config } from "tailwindcss";
+import { type Config } from "tailwindcss"
+import { nextui } from "@nextui-org/react"
+
 
 export default {
   content: [
@@ -11,10 +13,16 @@ export default {
     extend: {
       backgroundImage: {
         'main-back': "url('/bg.jpg')",
-      }
+      },
+      random: 'text-red-500'
     },
+    colors: {
+      'random': '#000000',
+    }
   },
+  darkMode: "class",
   plugins: [
-    require("flowbite/plugin")
+    require("flowbite/plugin"),
+    nextui()
   ],
 } satisfies Config;
