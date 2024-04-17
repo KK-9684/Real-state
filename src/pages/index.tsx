@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react"
 import Head from "next/head"
 import Link from "next/link"
 import { api } from "apple/utils/api"
-import {RadioGroup, Radio, cn} from "@nextui-org/react"
+import { RadioGroup, Radio, cn } from "@nextui-org/react"
 import { DropdownItem as NextUIDropdownItem } from "@nextui-org/dropdown";
 import { type DropdownItemProps } from "@nextui-org/react";
 
