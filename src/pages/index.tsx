@@ -33,7 +33,6 @@ function CustomRadio ({ value, description }: RadioProps) {
 };
 
 export default function Home() {
-
   return (
     <>
       <Head>
